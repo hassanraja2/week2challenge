@@ -1,0 +1,39 @@
+#cloning github repository
+git clone https://github.com/hassanraja2/week2challenge.git
+cd week2challenge
+#cloning gitlab repository
+git clone https://gitlab.com/qacdevops/trio-task.git.git
+cd trio-task/
+ls
+cd flask-app
+vim Dockerfile
+
+#Dockerfile commans
+FROM python:3.7
+COPY app.py .
+RUN pip install flask
+EXPOSE 5000
+ENTRYPOINT ["python", "app.py"]
+
+#open app.py
+vim app.py
+deleted [] where PASSWORD written
+
+#building flask-app image
+sudo docker build -t flask-app .
+
+#stop and and delete existing containers that are running on port 5000
+sudo docker ps -a
+sudo docker stop kind_mclintock
+sudo docker rm kind_mclintock
+
+#building flask-app container
+sudo docker run -d -p 5000:5000 --name flask-app flask-app
+
+#navigating to db folder
+cd db
+#Dockerfile 
+FROM mysql:5.7
+ENV MYSQL_DATABASE=flask-db
+ADD CreateTable.sql docker-entrypoint-initdb.d/
+Build SQL Container 
