@@ -36,4 +36,19 @@ cd db
 FROM mysql:5.7
 ENV MYSQL_DATABASE=flask-db
 ADD CreateTable.sql docker-entrypoint-initdb.d/
-Build SQL Container 
+
+#Build SQL image
+sudo docker build -t mysql .
+
+# Build mysql container
+sudo docker run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=PASSWORD mysql
+
+#checking if container works
+sudo docker ps
+#goiing insidw sql container
+sudo docker exec -it mysql bash
+ls
+ls docker-entrypoint-initdb.d/
+mysql -uroot -pPASSWORD
+#Viewing datatbases inside mysql
+SHOW DATABASES;
