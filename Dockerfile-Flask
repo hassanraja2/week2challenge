@@ -6,7 +6,7 @@ FROM python:3.7
 COPY app.py . 
 # run pip dependencies
 RUN pip install flask 
-RUN pip install flask flask_sqlalchemy
+RUN pip install flask flask_sqlalchemy pymysql
 # Expose correct port
 EXPOSE 5000
 # Create an entrypoint
