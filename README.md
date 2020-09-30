@@ -1,4 +1,4 @@
-<h1 What was the challenge? </h1>
+<h2> What was the challenge? </h2>
 
 The challenge was to create two containers, one for flask-application and the other one for mysql. The aim of the challenge was to build images and containers and successfully deploying them to their relevant ports. 
 
